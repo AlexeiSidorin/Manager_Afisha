@@ -1,14 +1,13 @@
 package manager;
 
 import domain.Film;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class FilmManagerTest {
 
-    FilmManager manager = new FilmManager();
+    FilmManager manager = new FilmManager(10);
 
     Film item1 = new Film(1, 3, "Aasd", 2, 5);
     Film item2 = new Film(2, 3, "sdf", 2, 5);
@@ -50,7 +49,7 @@ class FilmManagerTest {
         manager.add(item11);
         manager.add(item12);
 
-        Film[] actual = manager.getAll();
+        Film[] actual = manager.getOnlyTenWithLastOne();
         Film[] expect = {item12, item11, item10, item9, item8, item7, item6, item5, item4, item3};
 
         assertArrayEquals(expect, actual);
@@ -65,7 +64,7 @@ class FilmManagerTest {
         manager.add(item4);
 
 
-        Film[] actual = manager.getAll();
+        Film[] actual = manager.getOnlyTenWithLastOne();
         Film[] expect = {item4, item3, item2, item1};
 
         assertArrayEquals(expect, actual);

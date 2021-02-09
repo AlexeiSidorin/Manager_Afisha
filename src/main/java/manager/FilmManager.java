@@ -7,6 +7,15 @@ import java.util.Arrays;
 
 class FilmManager {
     private Film[] films = new Film[0];
+    private int limits = 10;
+
+
+    FilmManager(int limits){
+        this.limits=limits;
+    }
+    FilmManager(){
+
+    }
 
 
     public Film[] add(Film film) {
@@ -23,7 +32,7 @@ class FilmManager {
         return tmp;
     }
 
-    public Film[] getAll() {
+    public Film[] getOnlyTenWithLastOne() {
         Film[] resultAll = new Film[films.length];
 
 
@@ -32,10 +41,10 @@ class FilmManager {
             resultAll[i] = films[index];
         }
 
-        Film[] arr2 = Arrays.copyOfRange(resultAll,0,10);
+        Film[] onlyTenFilms = Arrays.copyOfRange(resultAll,0,10);
 
         if(films.length > 10) {
-            return arr2;
+            return onlyTenFilms;
         } else {
             return resultAll;
         }
