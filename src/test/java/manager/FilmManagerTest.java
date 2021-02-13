@@ -47,7 +47,7 @@ class FilmManagerTest {
         manager.add(item11);
         manager.add(item12);
 
-        Film[] actual = manager.getOnlyTenWithLastOne();
+        Film[] actual = manager.getOnlyLastTen();
         Film[] expect = {item12, item11, item10, item9, item8, item7, item6, item5, item4, item3};
 
         assertArrayEquals(expect, actual);
@@ -62,7 +62,7 @@ class FilmManagerTest {
         manager.add(item4);
 
 
-        Film[] actual = manager.getOnlyTenWithLastOne();
+        Film[] actual = manager.getOnlyLastTen();
         Film[] expect = {item4, item3, item2, item1};
 
         assertArrayEquals(expect, actual);

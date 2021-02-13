@@ -32,7 +32,7 @@ class FilmManager {
     }
 
 
-    public Film[] getOnlyTenWithLastOne() {
+    public Film[] getOnlyLastTen() {
 
         Film[] resultAll = new Film[films.length];
         for (int i = 0; i < resultAll.length; i++) {
