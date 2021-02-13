@@ -3,32 +3,30 @@ package manager;
 import domain.Film;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 class FilmManagerTest {
 
     FilmManager manager = new FilmManager(10);
 
-    Film item1 = new Film(1, 3, "Aasd", 2, 5);
-    Film item2 = new Film(2, 3, "sdf", 2, 5);
-    Film item3 = new Film(3, 3, "Aafesd", 2, 5);
-    Film item4 = new Film(4, 3, "Aasrthjd", 2, 5);
-    Film item5 = new Film(5, 3, "Aakhjkgasd", 2, 5);
-    Film item6 = new Film(6, 3, "Asadaasd", 2, 5);
-    Film item7 = new Film(7, 3, "Aasdqwesd", 2, 5);
-    Film item8 = new Film(8, 3, "Aasertd", 2, 5);
-    Film item9 = new Film(9, 3, "Aasyutykhd", 2, 5);
-    Film item10 = new Film(10, 3, "Aafgfbsd", 2, 5);
-    Film item11 = new Film(11, 3, "Aawefqsd", 2, 5);
-    Film item12 = new Film(12, 3, "Aasdsfsd", 2, 5);
-
+    Film item1 = new Film(1, "Один дома", 200, 5);
+    Film item2 = new Film(2, "Терминатор", 240, 3);
+    Film item3 = new Film(3, "Тени", 210, 5);
+    Film item4 = new Film(4, "Осенняя сонтана", 234, 8);
+    Film item5 = new Film(5, "Наташа", 199, 1);
+    Film item6 = new Film(6, "Манхэттен", 135, 3);
+    Film item7 = new Film(7, "Любовь и смерть", 256, 7);
+    Film item8 = new Film(8, "Мужья и жены", 293, 4);
+    Film item9 = new Film(9, "Бертман", 212, 9);
+    Film item10 = new Film(10, "Лица", 267, 12);
+    Film item11 = new Film(11, "Корпорация святые моторы", 193, 5);
+    Film item12 = new Film(12, "Психо", 256, 3);
 
 
     @Test
     void shouldAdd() {
         Film[] actual = manager.add(item1);
-        Film[] expect = { item1 };
-
+        Film[] expect = {item1};
         assertArrayEquals(expect, actual);
 
     }
