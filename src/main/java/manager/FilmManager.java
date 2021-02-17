@@ -2,53 +2,47 @@ package manager;
 
 import domain.Film;
 
-import java.util.Arrays;
 
+public class FilmManager {
 
-class FilmManager {
+    private Film[] items = new Film[0];
+    private int limits;
 
-    private Film[] films = new Film[0];
-    private int limits = 10;
-
-
-    FilmManager(int limits){
-        this.limits=limits;
+    public FilmManager(int limits) {
+        this.limits = limits;
     }
 
-
-    FilmManager(){
-    }
-
-
-    public Film[] add(Film film) {
-
-        int length = films.length + 1;
+    public void add(Film item) {
+        int length = items.length + 1;
         Film[] tmp = new Film[length];
-        System.arraycopy(films, 0, tmp, 0, films.length);
+
+        for (int i = 0; i < items.length; i++) {
+            tmp[i] = items[i];
+        }
+
         int lastIndex = tmp.length - 1;
-        tmp[lastIndex] = film;
-        films = tmp;
-        return tmp;
+        tmp[lastIndex] = item;
+        items = tmp;
     }
 
 
-    public Film[] getOnlyLastTen() {
+    public Film[] getLastAddedItems() {
 
-        Film[] resultAll = new Film[films.length];
-        for (int i = 0; i < resultAll.length; i++) {
-            int index = films.length - i - 1;
-            resultAll[i] = films[index];
+        int length = limits;
+
+        if (length > items.length) {
+            length = items.length;
         }
 
-        Film[] onlyTenFilms = Arrays.copyOfRange(resultAll,0,10);
+        Film[] result = new Film[length];
 
-        if(films.length > 10) {
-            return onlyTenFilms;
-        } else {
-            return resultAll;
+        for (int i = 0; i < length; i++) {
+            int index = items.length - i - 1;
+            result[i] = items[index];
         }
-
+        return result;
     }
-
-
 }
+
+
+
